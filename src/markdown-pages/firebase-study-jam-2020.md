@@ -9,12 +9,11 @@ description: 'Curse content of Firebase study Jam by GDG'
 #### Clase #1 Intro Firebase
 
 Introducción a los productos de Firebase y creación de Primer Lab (Meetup).
-Se crea base de datos NoSQL utilizando el [sitio web de Firebase](https://console.firebase.google.com/), se integra login con google utilizando usuario y password, se hace lógica para hacer RSVP y se crea un chat en tiempo real.
+Se crea base de datos NoSQL utilizando el <a href="https://console.firebase.google.com/" target="_blank">sitio web de Firebase</a>, se integra login con google utilizando usuario y password, se hace lógica para hacer RSVP y se crea un chat en tiempo real.
 
 <iframe width="260" height="215" src="https://www.youtube.com/embed/5yGmd-ecLco" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-[Branch de github del lab completado](https://github.com/nasarcacd/firebase-gtk-web-start-nasarca)
-
+<a href="https://github.com/nasarcacd/firebase-gtk-web-start-nasarca" target="_blank">Branch de github del lab completado</a> / <a href="https://fir-web-codelab-6d839.web.app" target="_blank">Demo</a>
 
 #### Clase #2 Continuación Lab Meetup
 
@@ -33,17 +32,22 @@ Se explica a más detalle los conceptos de base de datos NoSQL
 
 <iframe width="260" height="215" src="https://www.youtube.com/embed/m--P3S2ZKA0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-Nuevo proyecto en Firebase Console
 ```
+Crear proyecto en Firebase Console
 FriendlyEats
 cd friendlyeats-web
 npm -g install firebase-tools
 firebase --version
 firebase login
 firebase use --add
+firebase serve --only hosting
 ```
 
-[Branch de github del lab completado](https://github.com/nasarcacd/friendlyeats-web)
+```
+firebase deploy
+```
+
+<a href="https://github.com/nasarcacd/friendlyeats-web" target="_blank">Branch de github del lab completado</a> / <a href="https://friendlyeats-nasarca.web.com" target="_blank">Demo</a>
 
 #### Clase #5 Conceptos de Querys en Firestore, Rules y creación de Indexes
 
