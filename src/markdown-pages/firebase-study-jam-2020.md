@@ -13,7 +13,9 @@ Se crea base de datos NoSQL utilizando el <a href="https://console.firebase.goog
 
 <iframe width="260" height="215" src="https://www.youtube.com/embed/5yGmd-ecLco" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
-<a href="https://github.com/nasarcacd/firebase-gtk-web-start-nasarca" target="_blank">Branch de github del lab completado</a> / <a href="https://fir-web-codelab-6d839.web.app" target="_blank">Demo</a>
+<a href="https://github.com/nasarcacd/firebase-gtk-web-start-nasarca" target="_blank">Branch de github del lab completado</a>
+
+<a href="https://fir-web-codelab-6d839.web.app" target="_blank">Demo</a>
 
 #### Clase #2 Continuación Lab Meetup
 
@@ -47,7 +49,9 @@ firebase serve --only hosting
 firebase deploy
 ```
 
-<a href="https://github.com/nasarcacd/friendlyeats-web" target="_blank">Branch de github del lab completado</a> / <a href="https://friendlyeats-nasarca.web.com" target="_blank">Demo</a>
+<a href="https://github.com/nasarcacd/friendlyeats-web" target="_blank">Branch de github del lab completado</a>
+
+<a href="https://friendlyeats-nasarca.web.app" target="_blank">Demo</a>
 
 #### Clase #5 Conceptos de Querys en Firestore, Rules y creación de Indexes
 
