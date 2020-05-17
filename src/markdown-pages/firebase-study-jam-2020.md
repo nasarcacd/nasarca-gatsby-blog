@@ -55,6 +55,8 @@ firebase deploy
 
 #### Clase #5 Conceptos de Querys en Firestore, Rules y creación de Indexes
 
+<iframe width="260" height="215" src="https://www.youtube.com/embed/d6k09brtBVc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 Para solo hacer deploy de las reglas de Firestore
 
 ```
