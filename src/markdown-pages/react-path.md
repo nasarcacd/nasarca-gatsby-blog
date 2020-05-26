@@ -5,11 +5,58 @@ date: "2020-05-07"
 
 ### React Basics
 
+#### React.Component
+
+##### use State, props and contructor
+
+#### Funcional Components
+
 ### React Route and Routing
 
 ### Styled Component
 
 Styled Components allow you to write plain CSS in your components without worrying about class name collisions. It helps to write CSS that's scoped to a single component and does not leak to any other element in the page.
+
+#### Installation
+
+```npm install --save styled-components```
+
+#### Example
+
+create file example: my-component.styles.jsx
+```
+import styled from 'styled-components';
+
+export const Container = styled.div`
+  width: 100%;
+  min-height: 100px;
+  border-bottom: 1px solid darkgrey;
+`;
+
+export const NameContainer = styled.span`
+  width: 90%;
+  margin-bottom: 15px;
+`;
+```
+
+Use it
+```
+import React from 'react';
+import { Container, NameContainer } from './my-component.styles';
+
+const MyComponent = ({ item }) =>  {
+const { name } = item;
+return (
+    <Container>
+      <NameContainer>{name}</NameContainer>
+    </Container>
+)};
+
+export default MyComponent;
+``` 
+
+#### <a href="https://styled-components.com/docs/basics" target="_blank">Oficial website</a>
+
 
 ### Redux
 
@@ -101,6 +148,87 @@ const MyComponent = React.memo(function MyComponent(props) {
 ### Material UI
 
 ### Hooks
+
+Hooks are a new addition in React 16.8. They let you use state and other React features without writing a class.
+
+```
+import React, { useState } from 'react';
+
+function Example() {
+  // Declare a new state variable, which we'll call "count"
+  const [count, setCount] = useState(0);
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+Here, useState is a Hook. We call it inside a function component to add some local state to it. React will preserve this state between re-renders. useState returns a pair: the current state value and a function that lets you update it. You can call this function from an event handler or somewhere else. It’s similar to this.setState in a class, except it doesn’t merge the old and new state together. 
+
+#### Effect Hook
+
+You’ve likely performed data fetching, subscriptions, or manually changing the DOM from React components before. We call these operations “side effects” (or “effects” for short) because they can affect other components and can’t be done during rendering.
+
+The Effect Hook, useEffect, adds the ability to perform side effects from a function component. It serves the same purpose as componentDidMount, componentDidUpdate, and componentWillUnmount in React classes, but unified into a single API.
+
+```
+import React, { useState, useEffect } from 'react';
+
+function Example() {
+  const [count, setCount] = useState(0);
+
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    // Update the document title using the browser API
+    document.title = `You clicked ${count} times`;
+  });
+
+  return (
+    <div>
+      <p>You clicked {count} times</p>
+      <button onClick={() => setCount(count + 1)}>
+        Click me
+      </button>
+    </div>
+  );
+}
+```
+
+Effects may also optionally specify how to “clean up” after them by returning a function. For example, this component uses an effect to subscribe to a friend’s online status, and cleans up by unsubscribing from it:
+
+```
+import React, { useState, useEffect } from 'react';
+
+function FriendStatus(props) {
+  const [isOnline, setIsOnline] = useState(null);
+
+  function handleStatusChange(status) {
+    setIsOnline(status.isOnline);
+  }
+
+  useEffect(() => {
+    ChatAPI.subscribeToFriendStatus(props.friend.id, handleStatusChange);
+    return () => {
+      ChatAPI.unsubscribeFromFriendStatus(props.friend.id, handleStatusChange);
+    };
+  });
+
+  if (isOnline === null) {
+    return 'Loading...';
+  }
+  return isOnline ? 'Online' : 'Offline';
+}
+```
+
+#### Video Intro React Conf
+
+<iframe width="560" height="315" src="https://www.youtube.com/embed/dpw9EHDh2bM" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 #### How to fetch data with React Hooks?
 
