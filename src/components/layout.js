@@ -35,17 +35,17 @@ const Layout = ({ children }) => {
       >
         <main>{children}</main>
         <footer>
-        <Link
+          <Link
             to="/"
             style={{
               color: `#60635c`,
               textDecoration: `none`,
-              fontWeight: 600
+              fontWeight: 600,
             }}
           >
-          © {new Date().getFullYear()} {data.site.siteMetadata.title}
-        </Link>
-        {` `}
+            © {new Date().getFullYear()} {data.site.siteMetadata.title}
+          </Link>
+          {` `}
         </footer>
       </div>
     </>
