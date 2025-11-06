@@ -15,13 +15,18 @@ const BlogTitle = styled.h3`
   color: #24248a;
 `
 
+const ImageContainer = styled.div`
+  max-width: 300px;
+  margin-bottom: 1.45rem;
+`
+
 export default ({ data }) => (
   <Layout>
     <SEO title="Home" />
     <div>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
+      <ImageContainer>
         <Image />
-      </div>
+      </ImageContainer>
       <h4>{data.allMarkdownRemark.totalCount} Posts</h4>
       {data.allMarkdownRemark.edges.map(({ node }) => (
         <div key={node.id}>
