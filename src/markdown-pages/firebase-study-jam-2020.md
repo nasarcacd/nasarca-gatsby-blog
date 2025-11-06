@@ -1,7 +1,7 @@
 ---
 title: "Firebase Study Jam"
 date: "2020-05-08"
-description: "Curse content of Firebase study Jam by GDG"
+description: "Course content of Firebase study Jam by GDG"
 ---
 
 ### Videos from GDG Pura Vida
