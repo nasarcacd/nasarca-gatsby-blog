@@ -1,7 +1,7 @@
 ---
-title: 'Firebase Study Jam'
-date: '2020-05-08'
-description: 'Curse content of Firebase study Jam by GDG'
+title: "Firebase Study Jam"
+date: "2020-05-08"
+description: "Curse content of Firebase study Jam by GDG"
 ---
 
 ### Videos from GDG Pura Vida
@@ -28,7 +28,6 @@ Se continúa la creación de las funcionalidades del meetup y se crean las regla
 Se explica a más detalle los conceptos de base de datos NoSQL
 
 <iframe width="260" height="215" src="https://www.youtube.com/embed/qIkQ-5TmVk0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-
 
 #### Clase #4 Lab friendlyeats-web
 

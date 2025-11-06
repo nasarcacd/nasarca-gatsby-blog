@@ -21,8 +21,6 @@ class Welcome extends React.Component {
 
 <a href="https://projects.wojtekmaj.pl/react-lifecycle-methods-diagram/" target="_blank">Oficial website</a>
 
-
-
 #### render()
 
 The render() method is the only required method in a class component.
@@ -43,7 +41,6 @@ constructor(props) {
 ```
 
 Constructor is the only place where you should assign this.state directly. In all other methods, you need to use this.setState() instead.
-
 
 #### componentDidMount()
 
@@ -90,9 +87,9 @@ Use shouldComponentUpdate() to let React know if a component’s output is not a
 
 #### Instalation
 
-```yarn add react-router-dom```
+`yarn add react-router-dom`
 
-#### How to implemented it 
+#### How to implemented it
 
 ```
 import React from "react";
@@ -204,11 +201,12 @@ Styled Components allow you to write plain CSS in your components without worryi
 
 #### Installation
 
-```npm install --save styled-components```
+`npm install --save styled-components`
 
 #### Example
 
 create file example: my-component.styles.jsx
+
 ```
 import styled from 'styled-components';
 
@@ -225,6 +223,7 @@ export const NameContainer = styled.span`
 ```
 
 Use it
+
 ```
 import React from 'react';
 import { Container, NameContainer } from './my-component.styles';
@@ -238,15 +237,13 @@ return (
 )};
 
 export default MyComponent;
-``` 
+```
 
 #### <a href="https://styled-components.com/docs/basics" target="_blank">Oficial website</a>
-
 
 ### Redux
 
 React Redux is the official React binding for Redux. It lets your React components read data from a Redux store, and dispatch actions to the store to update data.
-
 
 ### Sagas
 
@@ -286,7 +283,6 @@ const EnhancedComponent = enhance(WrappedComponent)
 
 The compose utility function is provided by many third-party libraries including lodash (as lodash.flowRight), Redux, and Ramda.
 
-
 ### React Performance
 
 #### Lazy
@@ -306,7 +302,6 @@ Firstly, bundling involves aligning our code components in progression and putti
 #### Error Boundaries
 
 Error boundaries are React components that catch JavaScript errors anywhere in their child component tree, log those errors, and display a fallback UI instead of the component tree that crashed. Error boundaries catch errors during rendering, in lifecycle methods, and in constructors of the whole tree below them. [Online DEMO](https://codepen.io/gaearon/pen/wqvxGa)
-
 
 ##### Where to Place Error Boundaries
 
@@ -354,7 +349,7 @@ function Example() {
 }
 ```
 
-Here, useState is a Hook. We call it inside a function component to add some local state to it. React will preserve this state between re-renders. useState returns a pair: the current state value and a function that lets you update it. You can call this function from an event handler or somewhere else. It’s similar to this.setState in a class, except it doesn’t merge the old and new state together. 
+Here, useState is a Hook. We call it inside a function component to add some local state to it. React will preserve this state between re-renders. useState returns a pair: the current state value and a function that lets you update it. You can call this function from an event handler or somewhere else. It’s similar to this.setState in a class, except it doesn’t merge the old and new state together.
 
 #### Effect Hook
 
@@ -419,7 +414,6 @@ function FriendStatus(props) {
 
 [Link to awesome article](https://www.robinwieruch.de/react-hooks-fetch-data?fbclid=IwAR2iM3l_PulHxdkPduPfJ4b8icId-vvF4EQbQXgk2t4PpsMz0cFIScTXATA)
 
-
 ### Context API
 
 Context provides a way to pass data through the component tree without having to pass props down manually at every level.
@@ -434,10 +428,9 @@ Use redux for more complex projects that need more flexibility and reuse compone
 
 GraphQL is a query language for APIs and a runtime for fulfilling those queries with your existing data. GraphQL provides a complete and understandable description of the data in your API, gives clients the power to ask for exactly what they need and nothing more, makes it easier to evolve APIs over time, and enables powerful developer tools.
 
-
 ### Webpack
 
-Webpack is a static module bundler for JavaScript applications — it takes all the code from your application and makes it usable in a web browser. Modules are reusable chunks of code built from your app’s JavaScript, node_modules, images, and the CSS styles which are packaged to be easily used in your website. 
+Webpack is a static module bundler for JavaScript applications — it takes all the code from your application and makes it usable in a web browser. Modules are reusable chunks of code built from your app’s JavaScript, node_modules, images, and the CSS styles which are packaged to be easily used in your website.
 
 ### Babel
 
