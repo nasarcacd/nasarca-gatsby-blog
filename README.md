@@ -4,7 +4,7 @@ A personal blog built with Gatsby, React, and styled-components where I share my
 
 ## 👤 Author
 
-**Nayib Sarmiento** ([@nasarca](https://github.com/nasarcacd))  
+**Nayib Sarmiento** ([@nasarcacd](https://github.com/nasarcacd))  
 📧 nayibsc@gmail.com
 
 ## ✨ Features
