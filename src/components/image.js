@@ -26,6 +26,10 @@ const Image = () => {
 
   const image = getImage(data.placeholderImage)
 
+  if (!image) {
+    return null
+  }
+
   return <GatsbyImage image={image} alt="Gatsby Astronaut" />
 }
 
