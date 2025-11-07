@@ -28,28 +28,28 @@ A personal blog built with Gatsby, React, and styled-components where I share my
 
 1. **Clone the repository**
 
-    ```shell
-    git clone https://github.com/nasarcacd/nasarca-gatsby-blog.git
-    cd nasarca-gatsby-blog
-    ```
+   ```shell
+   git clone https://github.com/nasarcacd/nasarca-gatsby-blog.git
+   cd nasarca-gatsby-blog
+   ```
 
 2. **Install dependencies**
 
-    ```shell
-    npm install
-    ```
+   ```shell
+   npm install
+   ```
 
 3. **Start the development server**
 
-    ```shell
-    npm run develop
-    ```
+   ```shell
+   npm run develop
+   ```
 
 4. **View your blog**
 
-    Your site is now running at `http://localhost:8000`!
+   Your site is now running at `http://localhost:8000`!
 
-    You can also access GraphiQL, a tool to experiment with querying your data, at `http://localhost:8000/___graphql`.
+   You can also access GraphiQL, a tool to experiment with querying your data, at `http://localhost:8000/___graphql`.
 
 ## 📜 Available Scripts
 
@@ -121,14 +121,14 @@ To add a new blog post:
 1. Create a new Markdown file in `src/markdown-pages/`
 2. Add front matter with title and date:
 
-    ```markdown
-    ---
-    title: "Your Post Title"
-    date: "YYYY-MM-DD"
-    ---
+   ```markdown
+   ---
+   title: "Your Post Title"
+   date: "YYYY-MM-DD"
+   ---
 
-    Your content here...
-    ```
+   Your content here...
+   ```
 
 3. Save the file and it will automatically appear on your blog!
 
