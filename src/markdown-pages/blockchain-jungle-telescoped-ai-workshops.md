@@ -1,3 +1,8 @@
+---
+title: "🔥 Key Takeaways from Blockchain Jungle + Telescoped AI Workshops"
+date: "2025-11-07"
+---
+
 # 🔥 Key Takeaways from Blockchain Jungle + Telescoped AI Workshops
 
 ---
