@@ -151,13 +151,6 @@ The Bitcoin community **did not take seriously** the documentary's claims:
 - Other candidates have stronger arguments
 - Seen as entertainment rather than serious investigation
 
-### ⚠️ Security Concerns
-
-- **Potential harassment:** Todd expressed fears for his safety
-- **Financial risk:** Satoshi controls ~1 million BTC (~$50-60 billion)
-- **Compromised privacy:** Increased unwanted attention
-- Todd took "security measures" but denied being in hiding
-
 ---
 
 ## 🌟 Legacy and Impact
