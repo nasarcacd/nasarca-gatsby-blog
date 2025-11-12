@@ -126,12 +126,14 @@ This project is actively maintained and uses the latest stable versions of its d
 ### Known Vulnerabilities
 
 There are some known vulnerabilities in transitive dependencies (dependencies of Gatsby itself):
+
 - **24 vulnerabilities** (18 low, 3 moderate, 3 high) in Gatsby's dependencies
 - These are in development-time dependencies and do not affect production builds
 - Fixing these would require downgrading Gatsby from v5.15.0 to v3.3.1 (breaking change)
 - We're monitoring these and will upgrade when Gatsby releases updates
 
 The vulnerabilities are in:
+
 - `@parcel/reporter-dev-server` (moderate) - Parcel origin validation
 - `cookie` (moderate) - Cookie parsing (dev dependency)
 - `lodash.template` (high) - Command injection (dev dependency, in workbox-build)
