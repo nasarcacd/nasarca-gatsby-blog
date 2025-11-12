@@ -35,6 +35,7 @@ From a young age, Peter Todd became involved with the cypherpunk community, a gr
 ### 🏢 Career at Coinkite
 
 Peter Todd joins [Coinkite](https://coinkite.com/), a Canadian company specializing in hardware wallets and Bitcoin services, where he works as:
+
 - Security advisor
 - Protocol developer
 - Cryptographic solutions architect
@@ -130,6 +131,7 @@ In **October 2024**, director Cullen Hoback premiered a documentary on HBO that 
 ### 🎯 Documentary's "Evidence"
 
 The documentary was based on:
+
 - Analysis of emails between Todd and Satoshi
 - Similarities in writing style
 - Temporal coincidences in forum posts
@@ -164,6 +166,7 @@ The Bitcoin community **did not take seriously** the documentary's claims:
 ### 🔮 Current Work
 
 Peter Todd continues:
+
 - Developing at Coinkite
 - Researching Bitcoin privacy and security
 - Participating in debates about the protocol's future
@@ -180,17 +183,17 @@ Peter Todd continues:
 
 ## 📊 Quick Timeline
 
-| Year | Event |
-|------|--------|
-| **~2000** | Joins the cypherpunk movement |
-| **2010** | Discovers Bitcoin |
-| **2011** | Interacts with Satoshi Nakamoto / Graduates from OCAD |
-| **2012** | Begins Bitcoin code contributions |
-| **2014** | Joins Coinkite |
-| **2015** | BIP 65 (CLTV) activated in Bitcoin |
-| **2016** | BIP 125 (RBF) implemented / Launches OpenTimestamps |
-| **2024** | HBO documentary speculatively names him as Satoshi |
-| **Present** | Continues active Bitcoin development |
+| Year        | Event                                                 |
+| ----------- | ----------------------------------------------------- |
+| **~2000**   | Joins the cypherpunk movement                         |
+| **2010**    | Discovers Bitcoin                                     |
+| **2011**    | Interacts with Satoshi Nakamoto / Graduates from OCAD |
+| **2012**    | Begins Bitcoin code contributions                     |
+| **2014**    | Joins Coinkite                                        |
+| **2015**    | BIP 65 (CLTV) activated in Bitcoin                    |
+| **2016**    | BIP 125 (RBF) implemented / Launches OpenTimestamps   |
+| **2024**    | HBO documentary speculatively names him as Satoshi    |
+| **Present** | Continues active Bitcoin development                  |
 
 ---
 
@@ -210,15 +213,18 @@ Peter Todd continues:
 ## 🔗 Important Links
 
 ### 📱 Social Media
+
 - [Twitter/X: @peterktodd](https://twitter.com/peterktodd)
 - [GitHub: petertodd](https://github.com/petertodd)
 
 ### 📚 Technical Resources
+
 - [Bitcoin Wiki - Peter Todd](https://en.bitcoin.it/wiki/Peter_Todd)
 - [OpenTimestamps](https://opentimestamps.org/)
 - [Bitcoin Development Mailing List](https://lists.linuxfoundation.org/pipermail/bitcoin-dev/)
 
 ### 🏢 Company
+
 - [Coinkite](https://coinkite.com/)
 - [Coldcard Hardware Wallet](https://coldcard.com/)
 
