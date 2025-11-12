@@ -10,12 +10,15 @@ import React from "react"
 // Inject CSS to make eager-loaded images visible immediately
 export const onRenderBody = ({ setHeadComponents }) => {
   setHeadComponents([
-    <style key="eager-image-fix" dangerouslySetInnerHTML={{
-      __html: `
+    <style
+      key="eager-image-fix"
+      dangerouslySetInnerHTML={{
+        __html: `
         img[loading="eager"][data-main-image] {
           opacity: 1 !important;
         }
-      `
-    }} />
+      `,
+      }}
+    />,
   ])
 }

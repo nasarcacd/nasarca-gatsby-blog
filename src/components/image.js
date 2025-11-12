@@ -30,7 +30,14 @@ const Image = () => {
     return null
   }
 
-  return <GatsbyImage image={image} alt="Gatsby Astronaut" loading="eager" fetchPriority="high" />
+  return (
+    <GatsbyImage
+      image={image}
+      alt="Gatsby Astronaut"
+      loading="eager"
+      fetchPriority="high"
+    />
+  )
 }
 
 export default Image
