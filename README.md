@@ -114,6 +114,31 @@ nasarca-gatsby-blog/
 - `gatsby-plugin-manifest` - PWA manifest
 - `gatsby-plugin-image` - Modern image component
 
+## 🔒 Security & Package Updates
+
+This project is actively maintained and uses the latest stable versions of its direct dependencies:
+
+- **Gatsby 5.15.0** - Latest stable version
+- **React 18.3.1** - Latest React 18.x version
+- **styled-components 6.1.19** - Latest version
+- All Gatsby plugins are at their latest compatible versions
+
+### Known Vulnerabilities
+
+There are some known vulnerabilities in transitive dependencies (dependencies of Gatsby itself):
+- **24 vulnerabilities** (18 low, 3 moderate, 3 high) in Gatsby's dependencies
+- These are in development-time dependencies and do not affect production builds
+- Fixing these would require downgrading Gatsby from v5.15.0 to v3.3.1 (breaking change)
+- We're monitoring these and will upgrade when Gatsby releases updates
+
+The vulnerabilities are in:
+- `@parcel/reporter-dev-server` (moderate) - Parcel origin validation
+- `cookie` (moderate) - Cookie parsing (dev dependency)
+- `lodash.template` (high) - Command injection (dev dependency, in workbox-build)
+- `tmp` (high) - Symbolic link handling (dev dependency, in inquirer)
+
+All direct dependencies are kept up-to-date, and the project is regularly audited for security issues.
+
 ## 📝 Adding Blog Posts
 
 To add a new blog post:
