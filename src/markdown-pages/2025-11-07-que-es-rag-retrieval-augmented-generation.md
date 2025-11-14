@@ -1,7 +1,9 @@
 ---
 path: "/que-es-rag-retrieval-augmented-generation"
 date: "2025-11-07"
+timestamp: "2025-11-07T16:00:00"
 title: "🧬 RAG: Retrieval-Augmented Generation - La memoria externa de la IA"
+tags: ["AI", "RAG", "Machine Learning"]
 ---
 
 ¿Has escuchado el término **RAG (Retrieval-Augmented Generation)** últimamente? Pero ¿qué significa realmente? Vamos a descubrirlo.

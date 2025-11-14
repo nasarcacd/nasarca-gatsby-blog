@@ -1,6 +1,8 @@
 ---
 title: "👨‍💻 Peter Todd: Bitcoin Architect and Cryptographer"
 date: "2025-11-12"
+timestamp: "2025-11-12T10:30:00"
+tags: ["Bitcoin", "Cryptography", "Blockchain"]
 ---
 
 **Peter Todd** is a Canadian Bitcoin developer and applied cryptographer, considered one of the most influential figures in Bitcoin protocol development. Known for his critical and rigorous approach, he has made fundamental contributions to the security, scalability, and functionality of Bitcoin.

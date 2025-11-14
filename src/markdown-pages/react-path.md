@@ -1,6 +1,8 @@
 ---
 title: "First Steps with React"
 date: "2020-05-07"
+timestamp: "2020-05-07T10:00:00"
+tags: ["React", "JavaScript", "Tutorial"]
 ---
 
 ### React Basics

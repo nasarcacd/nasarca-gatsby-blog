@@ -5,6 +5,7 @@
  */
 
 import React from "react"
+import { ThemeProvider } from "./src/context/ThemeContext"
 
 // Fix for logo not loading on first visit
 // Inject CSS to make eager-loaded images visible immediately
@@ -22,3 +23,7 @@ export const onRenderBody = ({ setHeadComponents }) => {
     />,
   ])
 }
+
+export const wrapRootElement = ({ element }) => (
+  <ThemeProvider>{element}</ThemeProvider>
+)

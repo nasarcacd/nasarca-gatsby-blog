@@ -1,7 +1,9 @@
 ---
 path: "/guia-recursos-prompt-engineering"
 date: "2025-11-07"
+timestamp: "2025-11-07T14:00:00"
 title: "Guía Rápida: Recursos de Prompt Engineering (Noviembre 2025)"
+tags: ["AI", "Prompt Engineering", "Tutorial"]
 ---
 
 Aquí tienes una guía consolidada de los mejores recursos para aprender Prompt Engineering, actualizados a noviembre de 2025.

@@ -1,6 +1,8 @@
 ---
 title: "🤖 Top AI Tools for Software Development in 2025"
 date: "2025-11-07"
+timestamp: "2025-11-07T08:00:00"
+tags: ["AI", "Tools", "Software Development"]
 ---
 
 The AI landscape for developers is rapidly evolving. Here are the standout tools worth exploring:
