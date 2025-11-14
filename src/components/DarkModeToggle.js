@@ -18,14 +18,34 @@ const ToggleButton = styled.button`
   &:hover {
     transform: scale(1.05);
   }
+
+  &:focus {
+    outline: 2px solid ${props => (props.isDarkMode ? "#ffd700" : "#fff")};
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${props => (props.isDarkMode ? "#ffd700" : "#fff")};
+    outline-offset: 2px;
+  }
 `
 
 const DarkModeToggle = () => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext)
 
   return (
-    <ToggleButton onClick={toggleTheme} isDarkMode={isDarkMode}>
-      {isDarkMode ? "☀️ Light" : "🌙 Dark"}
+    <ToggleButton
+      onClick={toggleTheme}
+      isDarkMode={isDarkMode}
+      aria-label={`Switch to ${isDarkMode ? "light" : "dark"} mode`}
+      aria-pressed={isDarkMode}
+      type="button"
+    >
+      <span aria-hidden="true">{isDarkMode ? "☀️ Light" : "🌙 Dark"}</span>
     </ToggleButton>
   )
 }

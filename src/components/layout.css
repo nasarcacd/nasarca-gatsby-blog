@@ -621,3 +621,26 @@ pre tt:after {
     font-size: 100%;
   }
 }
+
+/* Dark mode styles */
+body.dark-mode {
+  background-color: #1a1a1a;
+  color: #e0e0e0;
+}
+
+body.dark-mode h1,
+body.dark-mode h2,
+body.dark-mode h3,
+body.dark-mode h4,
+body.dark-mode h5,
+body.dark-mode h6 {
+  color: #ffd700;
+}
+
+body.dark-mode a {
+  color: #4da6ff;
+}
+
+body.dark-mode a:hover {
+  color: #80bfff;
+}
