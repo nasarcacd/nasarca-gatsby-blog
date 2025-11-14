@@ -6,26 +6,10 @@ import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import SEO from "../components/seo"
 import Image from "../components/image"
-import CreatorInfo from "../components/CreatorInfo"
 import { ThemeContext } from "../context/ThemeContext"
 
 const PageContainer = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
   width: 100%;
-`
-
-const MainContent = styled.div`
-  width: 100%;
-  max-width: 100%;
-`
-
-const FooterSection = styled.footer`
-  width: 100%;
-  margin-top: 3rem;
-  display: flex;
-  justify-content: center;
 `
 
 const BlogLink = styled(Link)`
@@ -43,19 +27,15 @@ const BlogTitle = styled.h3`
 `
 
 const ImageContainer = styled.div`
-  width: 100%;
-  max-width: 100%;
-  margin-bottom: 3rem;
-  border-radius: 16px;
-  overflow: hidden;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  background: ${props => (props.isDarkMode ? "#2c2c2c" : "#fff")};
-  border: 1px solid ${props => (props.isDarkMode ? "#444" : "#e0e0e0")};
+  display: none;
 
-  &:hover {
-    transform: translateY(-8px) scale(1.01);
-    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
+  @media (max-width: 768px) {
+    display: block;
+    width: 100%;
+    margin-bottom: 2rem;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 `
 
@@ -180,66 +160,60 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <PageContainer>
-        <MainContent>
-          <ImageContainer isDarkMode={isDarkMode}>
-            <Image />
-          </ImageContainer>
+        <ImageContainer isDarkMode={isDarkMode}>
+          <Image />
+        </ImageContainer>
 
-          <FilterSection isDarkMode={isDarkMode}>
-            <FilterTitle isDarkMode={isDarkMode}>Filter by Topic</FilterTitle>
-            <div>
+        <FilterSection isDarkMode={isDarkMode}>
+          <FilterTitle isDarkMode={isDarkMode}>Filter by Topic</FilterTitle>
+          <div>
+            <FilterTag
+              active={!selectedTag}
+              isDarkMode={isDarkMode}
+              onClick={handleClearFilter}
+            >
+              All
+            </FilterTag>
+            {allTags.map(tag => (
               <FilterTag
-                active={!selectedTag}
+                key={tag}
+                active={selectedTag === tag}
                 isDarkMode={isDarkMode}
-                onClick={handleClearFilter}
+                onClick={() => handleTagClick(tag)}
               >
-                All
+                {tag}
               </FilterTag>
-              {allTags.map(tag => (
-                <FilterTag
-                  key={tag}
-                  active={selectedTag === tag}
-                  isDarkMode={isDarkMode}
-                  onClick={() => handleTagClick(tag)}
-                >
-                  {tag}
-                </FilterTag>
-              ))}
-            </div>
-          </FilterSection>
+            ))}
+          </div>
+        </FilterSection>
 
-          <PostCount isDarkMode={isDarkMode}>
-            {filteredPosts.length} Post{filteredPosts.length !== 1 ? "s" : ""}
-            {selectedTag && ` in "${selectedTag}"`}
-          </PostCount>
+        <PostCount isDarkMode={isDarkMode}>
+          {filteredPosts.length} Post{filteredPosts.length !== 1 ? "s" : ""}
+          {selectedTag && ` in "${selectedTag}"`}
+        </PostCount>
 
-          {filteredPosts.map(({ node }) => (
-            <PostCard key={node.id} isDarkMode={isDarkMode}>
-              <BlogLink to={node.fields.slug}>
-                <BlogTitle isDarkMode={isDarkMode}>
-                  {node.frontmatter.title}
-                </BlogTitle>
-              </BlogLink>
-              <PostMeta isDarkMode={isDarkMode}>
-                {node.frontmatter.date}
-              </PostMeta>
-              <p>{node.excerpt}</p>
-              {node.frontmatter.tags && (
-                <TagsContainer>
-                  {node.frontmatter.tags.map(tag => (
-                    <Tag key={tag} isDarkMode={isDarkMode}>
-                      {tag}
-                    </Tag>
-                  ))}
-                </TagsContainer>
-              )}
-            </PostCard>
-          ))}
-        </MainContent>
-
-        <FooterSection>
-          <CreatorInfo />
-        </FooterSection>
+        {filteredPosts.map(({ node }) => (
+          <PostCard key={node.id} isDarkMode={isDarkMode}>
+            <BlogLink to={node.fields.slug}>
+              <BlogTitle isDarkMode={isDarkMode}>
+                {node.frontmatter.title}
+              </BlogTitle>
+            </BlogLink>
+            <PostMeta isDarkMode={isDarkMode}>
+              {node.frontmatter.date}
+            </PostMeta>
+            <p>{node.excerpt}</p>
+            {node.frontmatter.tags && (
+              <TagsContainer>
+                {node.frontmatter.tags.map(tag => (
+                  <Tag key={tag} isDarkMode={isDarkMode}>
+                    {tag}
+                  </Tag>
+                ))}
+              </TagsContainer>
+            )}
+          </PostCard>
+        ))}
       </PageContainer>
     </Layout>
   )

@@ -3,6 +3,7 @@ import PropTypes from "prop-types"
 import React, { useContext } from "react"
 import styled from "styled-components"
 import DarkModeToggle from "./DarkModeToggle"
+import Image from "./image"
 import { ThemeContext } from "../context/ThemeContext"
 
 const HeaderContainer = styled.header`
@@ -20,6 +21,21 @@ const HeaderContent = styled.div`
   align-items: center;
 `
 
+const TitleSection = styled.div`
+  display: flex;
+  align-items: center;
+  gap: 15px;
+`
+
+const ImageWrapper = styled.div`
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid white;
+  flex-shrink: 0;
+`
+
 const Title = styled.h1`
   margin: 0;
 `
@@ -35,9 +51,14 @@ const Header = ({ siteTitle }) => {
   return (
     <HeaderContainer isDarkMode={isDarkMode}>
       <HeaderContent>
-        <Title>
-          <TitleLink to="/">{siteTitle}</TitleLink>
-        </Title>
+        <TitleSection>
+          <ImageWrapper>
+            <Image />
+          </ImageWrapper>
+          <Title>
+            <TitleLink to="/">{siteTitle}</TitleLink>
+          </Title>
+        </TitleSection>
         <DarkModeToggle />
       </HeaderContent>
     </HeaderContainer>
