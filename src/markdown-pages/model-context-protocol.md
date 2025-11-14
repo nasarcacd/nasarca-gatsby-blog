@@ -1,6 +1,8 @@
 ---
 title: "Model Context Protocol (MCP)"
 date: "2025-11-07"
+timestamp: "2025-11-07T13:00:00"
+tags: ["AI", "MCP", "Protocol"]
 ---
 
 Anthropic dropped Model Context Protocol (MCP)—and it's changing how AI connects to data. 🚀
