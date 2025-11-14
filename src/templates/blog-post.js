@@ -1,6 +1,7 @@
 import React, { useContext } from "react"
 import { graphql, Link } from "gatsby"
 import styled from "styled-components"
+import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import { ThemeContext } from "../context/ThemeContext"
 
@@ -108,7 +109,7 @@ const PostContent = styled.div`
   }
 `
 
-export default ({ data }) => {
+const BlogPost = ({ data }) => {
   const post = data.markdownRemark
   const { isDarkMode } = useContext(ThemeContext)
 
@@ -145,6 +146,21 @@ export default ({ data }) => {
     </Layout>
   )
 }
+
+BlogPost.propTypes = {
+  data: PropTypes.shape({
+    markdownRemark: PropTypes.shape({
+      html: PropTypes.string.isRequired,
+      frontmatter: PropTypes.shape({
+        title: PropTypes.string.isRequired,
+        date: PropTypes.string.isRequired,
+        tags: PropTypes.arrayOf(PropTypes.string),
+      }).isRequired,
+    }).isRequired,
+  }).isRequired,
+}
+
+export default BlogPost
 
 export const query = graphql`
   query ($slug: String!) {

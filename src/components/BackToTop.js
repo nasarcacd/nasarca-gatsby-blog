@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from "react"
+import React, { useState, useEffect, useContext, useCallback } from "react"
 import styled from "styled-components"
 import { ThemeContext } from "../context/ThemeContext"
 
@@ -29,6 +29,20 @@ const FloatingButton = styled.button`
     transform: translateY(-2px);
   }
 
+  &:focus {
+    outline: 2px solid ${props => (props.isDarkMode ? "#ffd700" : "#fff")};
+    outline-offset: 2px;
+  }
+
+  &:focus:not(:focus-visible) {
+    outline: none;
+  }
+
+  &:focus-visible {
+    outline: 2px solid ${props => (props.isDarkMode ? "#ffd700" : "#fff")};
+    outline-offset: 2px;
+  }
+
   @media (max-width: 480px) {
     bottom: 20px;
     right: 20px;
@@ -38,38 +52,73 @@ const FloatingButton = styled.button`
   }
 `
 
+// Throttle helper function
+const throttle = (func, delay) => {
+  let timeoutId = null
+  let lastRan = 0
+
+  return function throttled(...args) {
+    const now = Date.now()
+
+    if (now - lastRan >= delay) {
+      func.apply(this, args)
+      lastRan = now
+    } else {
+      clearTimeout(timeoutId)
+      timeoutId = setTimeout(
+        () => {
+          func.apply(this, args)
+          lastRan = Date.now()
+        },
+        delay - (now - lastRan)
+      )
+    }
+  }
+}
+
 const BackToTop = () => {
   const [visible, setVisible] = useState(false)
   const { isDarkMode } = useContext(ThemeContext)
 
-  useEffect(() => {
-    const toggleVisibility = () => {
-      if (window.pageYOffset > 300) {
-        setVisible(true)
-      } else {
-        setVisible(false)
-      }
-    }
-
-    window.addEventListener("scroll", toggleVisibility)
-    return () => window.removeEventListener("scroll", toggleVisibility)
+  const toggleVisibility = useCallback(() => {
+    if (typeof window === "undefined") return
+    setVisible(window.pageYOffset > 300)
   }, [])
 
-  const scrollToTop = () => {
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    // Throttle scroll event to improve performance
+    const throttledToggleVisibility = throttle(toggleVisibility, 100)
+
+    window.addEventListener("scroll", throttledToggleVisibility, {
+      passive: true,
+    })
+
+    // Check initial scroll position
+    toggleVisibility()
+
+    return () => window.removeEventListener("scroll", throttledToggleVisibility)
+  }, [toggleVisibility])
+
+  const scrollToTop = useCallback(() => {
+    if (typeof window === "undefined") return
+
     window.scrollTo({
       top: 0,
       behavior: "smooth",
     })
-  }
+  }, [])
 
   return (
     <FloatingButton
       onClick={scrollToTop}
       visible={visible}
       isDarkMode={isDarkMode}
-      aria-label="Back to top"
+      aria-label="Scroll back to top"
+      type="button"
     >
-      ↑
+      <span aria-hidden="true">↑</span>
     </FloatingButton>
   )
 }
