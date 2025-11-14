@@ -12,17 +12,23 @@ import styled from "styled-components"
 
 import Header from "./header"
 import BackToTop from "./BackToTop"
+import CreatorInfo from "./CreatorInfo"
 import { ThemeContext } from "../context/ThemeContext"
 import "./layout.css"
 
 const MainContainer = styled.div`
   margin: 0 auto;
-  max-width: 960px;
+  width: 80%;
+  max-width: 1400px;
   padding: 0 1.0875rem 1.45rem;
   min-height: 100vh;
   background: ${props => (props.isDarkMode ? "#1a1a1a" : "#ffffff")};
   color: ${props => (props.isDarkMode ? "#e0e0e0" : "#333")};
   transition: background 0.3s ease, color 0.3s ease;
+
+  @media (max-width: 768px) {
+    width: 95%;
+  }
 `
 
 const Layout = ({ children }) => {
@@ -43,6 +49,7 @@ const Layout = ({ children }) => {
       <MainContainer isDarkMode={isDarkMode}>
         <main>{children}</main>
       </MainContainer>
+      <CreatorInfo />
       <BackToTop />
     </>
   )
