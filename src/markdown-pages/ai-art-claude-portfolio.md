@@ -1,6 +1,8 @@
 ---
 title: "AI art with Claude for my personal portfolio 🎨"
 date: "2025-11-07"
+timestamp: "2025-11-07T12:00:00"
+tags: ["AI", "Art", "Portfolio"]
 ---
 
 Just created this incredible AI art with Claude for my personal portfolio 🎨✨

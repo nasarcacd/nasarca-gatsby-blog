@@ -1,7 +1,9 @@
 ---
 path: "/el-secreto-de-los-senior-devs-usando-ia-el-contexto"
 date: "2025-11-07"
+timestamp: "2025-11-07T09:00:00"
 title: "🧠 El secreto que separa a devs junior de senior usando IA: CONTEXTO"
+tags: ["AI", "Software Development", "Prompt Engineering"]
 ---
 
 Llevo años construyendo con IA y veo el mismo error constantemente. 👇
