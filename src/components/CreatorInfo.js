@@ -5,45 +5,63 @@ import { ThemeContext } from "../context/ThemeContext"
 const SidebarContainer = styled.div`
   background: ${props => (props.isDarkMode ? "#2c2c2c" : "#f5f5f5")};
   color: ${props => (props.isDarkMode ? "#e0e0e0" : "#333")};
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-  margin-bottom: 20px;
+  padding: 40px 60px;
+  border-radius: 16px;
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.08);
+  margin-bottom: 0;
+  width: 100%;
+  max-width: 800px;
+  text-align: center;
+  border-top: 3px solid ${props => (props.isDarkMode ? "#ffd700" : "#24248a")};
 
   @media (max-width: 768px) {
-    margin-top: 20px;
+    padding: 30px 20px;
   }
 `
 
 const CreatorName = styled.h3`
   margin: 0 0 10px 0;
   color: ${props => (props.isDarkMode ? "#ffd700" : "#24248a")};
+  font-size: 1.8rem;
 `
 
 const CreatorTitle = styled.p`
-  margin: 0 0 15px 0;
+  margin: 0 0 20px 0;
   font-style: italic;
-  font-size: 14px;
+  font-size: 16px;
+  color: ${props => (props.isDarkMode ? "#ccc" : "#666")};
 `
 
 const SocialLinks = styled.div`
   display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-bottom: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-bottom: 20px;
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    gap: 12px;
+  }
 `
 
 const SocialLink = styled.a`
   color: ${props => (props.isDarkMode ? "#4da6ff" : "#24248a")};
   text-decoration: none;
-  display: flex;
+  display: inline-flex;
   align-items: center;
   gap: 8px;
-  font-size: 14px;
-  transition: color 0.3s ease;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 8px 16px;
+  border-radius: 8px;
+  background: ${props => (props.isDarkMode ? "#3a3a3a" : "#e8e8e8")};
+  transition: all 0.3s ease;
 
   &:hover {
     color: ${props => (props.isDarkMode ? "#80bfff" : "#60635c")};
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
 `
 
@@ -61,7 +79,7 @@ const CreatorInfo = () => {
 
   return (
     <SidebarContainer isDarkMode={isDarkMode}>
-      <CreatorName isDarkMode={isDarkMode}>Nayib Scanferla</CreatorName>
+      <CreatorName isDarkMode={isDarkMode}>Nayib Sarmiento</CreatorName>
       <CreatorTitle>Software Engineer</CreatorTitle>
 
       <SocialLinks>
@@ -90,7 +108,7 @@ const CreatorInfo = () => {
       </SocialLinks>
 
       <Copyright isDarkMode={isDarkMode}>
-        © {new Date().getFullYear()} Nayib Scanferla
+        © {new Date().getFullYear()} Nayib Sarmiento
         <br />
         All rights reserved
       </Copyright>

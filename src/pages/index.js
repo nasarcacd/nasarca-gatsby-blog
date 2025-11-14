@@ -10,23 +10,22 @@ import CreatorInfo from "../components/CreatorInfo"
 import { ThemeContext } from "../context/ThemeContext"
 
 const PageContainer = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 300px;
-  gap: 40px;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
 `
 
 const MainContent = styled.div`
-  min-width: 0;
+  width: 100%;
+  max-width: 100%;
 `
 
-const Sidebar = styled.aside`
-  @media (max-width: 768px) {
-    order: -1;
-  }
+const FooterSection = styled.footer`
+  width: 100%;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
 `
 
 const BlogLink = styled(Link)`
@@ -44,16 +43,19 @@ const BlogTitle = styled.h3`
 `
 
 const ImageContainer = styled.div`
+  width: 100%;
   max-width: 100%;
-  margin-bottom: 2rem;
-  border-radius: 10px;
+  margin-bottom: 3rem;
+  border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: ${props => (props.isDarkMode ? "#2c2c2c" : "#fff")};
+  border: 1px solid ${props => (props.isDarkMode ? "#444" : "#e0e0e0")};
 
   &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    transform: translateY(-8px) scale(1.01);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.18);
   }
 `
 
@@ -179,7 +181,7 @@ const IndexPage = ({ data }) => {
       <SEO title="Home" />
       <PageContainer>
         <MainContent>
-          <ImageContainer>
+          <ImageContainer isDarkMode={isDarkMode}>
             <Image />
           </ImageContainer>
 
@@ -235,9 +237,9 @@ const IndexPage = ({ data }) => {
           ))}
         </MainContent>
 
-        <Sidebar>
+        <FooterSection>
           <CreatorInfo />
-        </Sidebar>
+        </FooterSection>
       </PageContainer>
     </Layout>
   )
