@@ -1,6 +1,8 @@
 ---
 title: "React Datagrid with Material UI"
 date: "2020-05-23"
+timestamp: "2020-05-23T14:00:00"
+tags: ["React", "Material UI", "JavaScript"]
 ---
 
 # my-asset-management
