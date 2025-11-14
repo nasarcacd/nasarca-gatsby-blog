@@ -12,6 +12,7 @@ import styled from "styled-components"
 
 import Header from "./header"
 import BackToTop from "./BackToTop"
+import CreatorInfo from "./CreatorInfo"
 import { ThemeContext } from "../context/ThemeContext"
 import "./layout.css"
 
@@ -48,6 +49,7 @@ const Layout = ({ children }) => {
       <MainContainer isDarkMode={isDarkMode}>
         <main>{children}</main>
       </MainContainer>
+      <CreatorInfo />
       <BackToTop />
     </>
   )
