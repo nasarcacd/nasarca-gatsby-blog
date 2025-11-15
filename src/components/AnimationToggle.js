@@ -74,6 +74,26 @@ const AnimationToggle = () => {
   const prefersReducedMotion = useReducedMotion()
   const [isEnabled, setIsEnabled] = useState(true)
   const [showTooltip, setShowTooltip] = useState(false)
+  const [isHomepage, setIsHomepage] = useState(true)
+
+  // Detect if we're on the homepage
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    const checkHomepage = () => {
+      const pathname = window.location.pathname
+      setIsHomepage(pathname === "/" || pathname === "")
+    }
+
+    checkHomepage()
+
+    // Listener for route changes (for SPAs)
+    window.addEventListener("popstate", checkHomepage)
+
+    return () => {
+      window.removeEventListener("popstate", checkHomepage)
+    }
+  }, [])
 
   useEffect(() => {
     if (typeof window === "undefined") return
@@ -126,6 +146,11 @@ const AnimationToggle = () => {
   const getIcon = () => {
     if (prefersReducedMotion) return "⚠️"
     return isEnabled ? (isDarkMode ? "🌌" : "🎵") : "⏸️"
+  }
+
+  // Don't render if not on homepage
+  if (!isHomepage) {
+    return null
   }
 
   return (
