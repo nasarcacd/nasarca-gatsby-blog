@@ -14,7 +14,6 @@ import Header from "./header"
 import BackToTop from "./BackToTop"
 import CreatorInfo from "./CreatorInfo"
 import AnimatedBackground from "./AnimatedBackground"
-import AnimationToggle from "./AnimationToggle"
 import { ThemeContext } from "../context/ThemeContext"
 import "./layout.css"
 
@@ -56,7 +55,6 @@ const Layout = ({ children }) => {
       </MainContainer>
       <CreatorInfo />
       <BackToTop />
-      <AnimationToggle />
     </>
   )
 }

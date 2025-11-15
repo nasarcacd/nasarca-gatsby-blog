@@ -29,8 +29,6 @@ const AnimatedBackground = () => {
   } = usePerformance()
   const prefersReducedMotion = useReducedMotion()
 
-  // Estado para toggle manual de animaciones
-  const [manualToggle, setManualToggle] = useState(null)
   const [isPageVisible, setIsPageVisible] = useState(true)
   const [isHomepage, setIsHomepage] = useState(true)
 
@@ -53,28 +51,6 @@ const AnimatedBackground = () => {
     }
   }, [])
 
-  // Cargar preferencia de animaciones desde localStorage
-  useEffect(() => {
-    if (typeof window === "undefined") return
-
-    const saved = localStorage.getItem("animatedBackgroundEnabled")
-    if (saved !== null) {
-      setManualToggle(saved === "true")
-    }
-  }, [])
-
-  // Guardar preferencia cuando cambia
-  useEffect(() => {
-    if (typeof window === "undefined" || manualToggle === null) return
-
-    localStorage.setItem("animatedBackgroundEnabled", manualToggle.toString())
-
-    // Disparar evento personalizado para que el toggle button se actualice
-    window.dispatchEvent(
-      new CustomEvent("animationToggleChange", { detail: manualToggle })
-    )
-  }, [manualToggle])
-
   // Page Visibility API - Pausar animaciones cuando la pestaña no está visible
   useEffect(() => {
     if (typeof document === "undefined") return
@@ -90,21 +66,6 @@ const AnimatedBackground = () => {
     }
   }, [])
 
-  // Escuchar cambios desde el toggle button
-  useEffect(() => {
-    if (typeof window === "undefined") return
-
-    const handleToggle = (event) => {
-      setManualToggle(event.detail)
-    }
-
-    window.addEventListener("toggleAnimatedBackground", handleToggle)
-
-    return () => {
-      window.removeEventListener("toggleAnimatedBackground", handleToggle)
-    }
-  }, [])
-
   // Determinar si las animaciones deben estar activas
   const shouldAnimate = () => {
     // Prioridad 0: Solo mostrar en homepage
@@ -113,13 +74,10 @@ const AnimatedBackground = () => {
     // Prioridad 1: Si el usuario prefiere reducir movimiento, desactivar
     if (prefersReducedMotion) return false
 
-    // Prioridad 2: Si hay toggle manual, respetarlo
-    if (manualToggle !== null) return manualToggle
-
-    // Prioridad 3: Si la página no está visible, desactivar
+    // Prioridad 2: Si la página no está visible, desactivar
     if (!isPageVisible) return false
 
-    // Prioridad 4: Usar detección de performance
+    // Prioridad 3: Usar detección de performance
     return perfEnableAnimations
   }
 
