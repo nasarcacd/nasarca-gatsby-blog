@@ -5,7 +5,6 @@ import PropTypes from "prop-types"
 
 import Layout from "../components/layout"
 import SEO from "../components/seo"
-import Image from "../components/image"
 import { ThemeContext } from "../context/ThemeContext"
 
 const PageContainer = styled.div`
@@ -23,19 +22,6 @@ const BlogTitle = styled.h3`
 
   &:hover {
     color: ${props => (props.isDarkMode ? "#ffed4e" : "#60635c")};
-  }
-`
-
-const ImageContainer = styled.div`
-  display: none;
-
-  @media (max-width: 768px) {
-    display: block;
-    width: 100%;
-    margin-bottom: 2rem;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   }
 `
 
@@ -167,10 +153,6 @@ const IndexPage = ({ data }) => {
     <Layout>
       <SEO title="Home" />
       <PageContainer>
-        <ImageContainer isDarkMode={isDarkMode}>
-          <Image />
-        </ImageContainer>
-
         <FilterSection isDarkMode={isDarkMode}>
           <FilterTitle isDarkMode={isDarkMode}>Filter by Topic</FilterTitle>
           <div>
