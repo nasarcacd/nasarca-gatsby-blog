@@ -45,13 +45,6 @@ const BackLink = styled(Link)`
     : "0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5)")};
   cursor: pointer;
 
-  &::before {
-    content: "←";
-    font-size: 1.3em;
-    font-weight: bold;
-    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  }
-
   &:hover {
     background: ${props => (props.isDarkMode
       ? "linear-gradient(135deg, rgba(255, 215, 0, 0.25) 0%, rgba(255, 215, 0, 0.15) 100%)"
@@ -64,12 +57,19 @@ const BackLink = styled(Link)`
       : "0 4px 16px rgba(36, 36, 138, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)")};
   }
 
-  &:hover::before {
-    transform: translateX(-4px);
-  }
-
   &:active {
     transform: translateX(-2px) scale(0.98);
+  }
+`
+
+const BackIcon = styled.span`
+  font-size: 1.3em;
+  font-weight: bold;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  line-height: 1;
+
+  ${BackLink}:hover & {
+    transform: translateX(-4px);
   }
 `
 
@@ -247,7 +247,8 @@ const BlogPost = ({ data }) => {
     <Layout>
       <PostContainer>
         <BackLink to="/" isDarkMode={isDarkMode}>
-          Volver a Posts
+          <BackIcon aria-hidden="true">←</BackIcon>
+          <span>Back to Posts</span>
         </BackLink>
 
         <PostHeader isDarkMode={isDarkMode}>
