@@ -3,12 +3,12 @@ import PropTypes from "prop-types"
 
 // Create context with default values
 export const ThemeContext = createContext({
-  isDarkMode: false,
+  isDarkMode: true,
   toggleTheme: () => {},
 })
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(true)
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
@@ -17,17 +17,14 @@ export const ThemeProvider = ({ children }) => {
     // SSR safe: Check if window is defined
     if (typeof window === "undefined") return
 
-    // Check for saved theme preference or system preference
+    // Check for saved theme preference or use dark mode as default
     const savedTheme = localStorage.getItem("theme")
 
     if (savedTheme) {
       setIsDarkMode(savedTheme === "dark")
     } else {
-      // Check system preference
-      const prefersDark = window.matchMedia(
-        "(prefers-color-scheme: dark)"
-      ).matches
-      setIsDarkMode(prefersDark)
+      // Default to dark mode
+      setIsDarkMode(true)
     }
   }, [])
 

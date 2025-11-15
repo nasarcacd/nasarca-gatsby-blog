@@ -10,6 +10,8 @@ const HeaderContainer = styled.header`
   background: ${props => (props.isDarkMode ? "#2c2c2c" : "#60635c")};
   margin-bottom: 1.45rem;
   transition: background 0.3s ease;
+  position: relative;
+  z-index: 10;
 `
 
 const HeaderContent = styled.div`
