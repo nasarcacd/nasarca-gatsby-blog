@@ -6,17 +6,20 @@ const ToggleButton = styled.button`
   background: ${props => (props.isDarkMode ? "#ffd700" : "#2c2c2c")};
   border: none;
   color: ${props => (props.isDarkMode ? "#2c2c2c" : "#ffd700")};
-  padding: 10px 15px;
-  border-radius: 20px;
+  padding: 10px;
+  border-radius: 50%;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 20px;
   display: flex;
   align-items: center;
-  gap: 5px;
+  justify-content: center;
+  gap: 2px;
   transition: all 0.3s ease;
+  width: 50px;
+  height: 50px;
 
   &:hover {
-    transform: scale(1.05);
+    transform: scale(1.1);
   }
 
   &:focus {
@@ -34,6 +37,27 @@ const ToggleButton = styled.button`
   }
 `
 
+const MoonWithStars = styled.span`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-size: 24px;
+
+  .moon {
+    font-size: 24px;
+  }
+
+  .stars {
+    position: absolute;
+    top: -2px;
+    right: -6px;
+    font-size: 10px;
+    display: flex;
+    gap: 1px;
+  }
+`
+
 const DarkModeToggle = () => {
   const { isDarkMode, toggleTheme } = useContext(ThemeContext)
 
@@ -45,7 +69,14 @@ const DarkModeToggle = () => {
       aria-pressed={isDarkMode}
       type="button"
     >
-      <span aria-hidden="true">{isDarkMode ? "☀️ Light" : "🌙 Dark"}</span>
+      {isDarkMode ? (
+        <span aria-hidden="true">🌞</span>
+      ) : (
+        <MoonWithStars aria-hidden="true">
+          <span className="moon">🌙</span>
+          <span className="stars">⭐⭐</span>
+        </MoonWithStars>
+      )}
     </ToggleButton>
   )
 }
