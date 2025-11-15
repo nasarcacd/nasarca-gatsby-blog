@@ -8,7 +8,22 @@ import SEO from "../components/seo"
 import { ThemeContext } from "../context/ThemeContext"
 
 const PageContainer = styled.div`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
   width: 100%;
+
+  @media (max-width: 1024px) {
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 1.25rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 1rem;
+  }
 `
 
 const BlogLink = styled(Link)`

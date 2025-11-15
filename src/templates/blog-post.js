@@ -5,6 +5,25 @@ import PropTypes from "prop-types"
 import Layout from "../components/layout"
 import { ThemeContext } from "../context/ThemeContext"
 
+const PostContainer = styled.article`
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  width: 100%;
+
+  @media (max-width: 1024px) {
+    padding: 0 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    padding: 0 1.25rem;
+  }
+
+  @media (max-width: 480px) {
+    padding: 0 1rem;
+  }
+`
+
 const BackLink = styled(Link)`
   display: inline-flex;
   align-items: center;
@@ -93,11 +112,31 @@ const Tag = styled.span`
 const PostContent = styled.div`
   color: ${props => (props.isDarkMode ? "#f0f0f0" : "#333")};
   line-height: 1.8;
+  font-size: 1.05rem;
   background: ${props => (props.isDarkMode ? "rgba(26, 26, 26, 0.85)" : "transparent")};
-  padding: ${props => (props.isDarkMode ? "1.5rem 0" : "0")};
+  padding: ${props => (props.isDarkMode ? "1.5rem 1.5rem" : "0")};
   border-radius: ${props => (props.isDarkMode ? "0 0 8px 8px" : "0")};
   box-shadow: ${props => (props.isDarkMode ? "0 2px 10px rgba(0, 0, 0, 0.3)" : "none")};
   margin-top: ${props => (props.isDarkMode ? "-2rem" : "0")};
+
+  @media (max-width: 768px) {
+    font-size: 1rem;
+    padding: ${props => (props.isDarkMode ? "1rem" : "0")};
+  }
+
+  /* Optimal reading width for text elements */
+  > p,
+  > ul,
+  > ol,
+  > h1,
+  > h2,
+  > h3,
+  > h4,
+  > h5,
+  > h6,
+  > blockquote {
+    max-width: 800px;
+  }
 
   h1,
   h2,
@@ -108,6 +147,7 @@ const PostContent = styled.div`
     color: ${props => (props.isDarkMode ? "#ffd700" : "#24248a")};
     margin-top: 2rem;
     margin-bottom: 1rem;
+    line-height: 1.4;
   }
 
   a {
@@ -132,10 +172,12 @@ const PostContent = styled.div`
 
   pre {
     background: ${props => (props.isDarkMode ? "#1a1a1a" : "#f5f5f5")};
-    padding: 1rem;
+    padding: 1.25rem;
     border-radius: 5px;
     overflow-x: auto;
     border: ${props => (props.isDarkMode ? "1px solid #444" : "1px solid #e0e0e0")};
+    max-width: 100%;
+    margin: 1.5rem 0;
 
     code {
       background: transparent;
@@ -160,25 +202,29 @@ const PostContent = styled.div`
     height: auto;
     border-radius: 8px;
     border: ${props => (props.isDarkMode ? "1px solid #444" : "none")};
+    margin: 1.5rem 0;
   }
 
   p {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
   }
 
   ul, ol {
-    margin-bottom: 1.2rem;
+    margin-bottom: 1.5rem;
     padding-left: 2rem;
   }
 
   li {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.6rem;
   }
 
   table {
     width: 100%;
     border-collapse: collapse;
-    margin-bottom: 1.5rem;
+    margin: 1.5rem 0;
+    max-width: 100%;
+    overflow-x: auto;
+    display: block;
 
     th, td {
       border: 1px solid ${props => (props.isDarkMode ? "#444" : "#ddd")};
@@ -199,7 +245,7 @@ const BlogPost = ({ data }) => {
 
   return (
     <Layout>
-      <div>
+      <PostContainer>
         <BackLink to="/" isDarkMode={isDarkMode}>
           Volver a Posts
         </BackLink>
@@ -226,7 +272,7 @@ const BlogPost = ({ data }) => {
           isDarkMode={isDarkMode}
           dangerouslySetInnerHTML={{ __html: post.html }}
         />
-      </div>
+      </PostContainer>
     </Layout>
   )
 }
