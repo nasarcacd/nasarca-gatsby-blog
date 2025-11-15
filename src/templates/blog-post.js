@@ -247,7 +247,7 @@ const BlogPost = ({ data }) => {
     <Layout>
       <PostContainer>
         <BackLink to="/" isDarkMode={isDarkMode}>
-          Volver a Posts
+          Back to Posts
         </BackLink>
 
         <PostHeader isDarkMode={isDarkMode}>
