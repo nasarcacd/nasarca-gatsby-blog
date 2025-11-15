@@ -46,10 +46,17 @@ const PostCard = styled.div`
   border-radius: 8px;
   border-left: 4px solid ${props => (props.isDarkMode ? "#ffd700" : "#24248a")};
   transition: all 0.3s ease;
+  box-shadow: ${props => (props.isDarkMode ? "0 4px 12px rgba(0, 0, 0, 0.3)" : "0 2px 8px rgba(0, 0, 0, 0.05)")};
 
   &:hover {
     transform: translateX(5px);
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    box-shadow: ${props => (props.isDarkMode ? "0 6px 16px rgba(0, 0, 0, 0.4)" : "0 4px 12px rgba(0, 0, 0, 0.1)")};
+  }
+
+  p {
+    color: ${props => (props.isDarkMode ? "#d0d0d0" : "#555")};
+    line-height: 1.6;
+    margin: 0.5rem 0;
   }
 `
 
