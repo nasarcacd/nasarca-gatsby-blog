@@ -67,7 +67,7 @@ const usePerformance = () => {
   const config = {
     low: {
       enableAnimations: false,
-      maxElements: 0,
+      maxElements: deviceType === "mobile" ? 3 : 5,
       enableParallax: false,
       enableBlur: false,
     },
