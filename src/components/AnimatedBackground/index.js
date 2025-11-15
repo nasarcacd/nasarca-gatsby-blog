@@ -125,9 +125,6 @@ const AnimatedBackground = () => {
 
   const enableAnimations = shouldAnimate()
 
-  // Ajustar maxElements si las animaciones están desactivadas
-  const adjustedMaxElements = enableAnimations ? maxElements : 0
-
   // No renderizar nada si no estamos en la homepage
   if (!isHomepage) {
     return null
@@ -138,14 +135,14 @@ const AnimatedBackground = () => {
       {isDarkMode ? (
         <DarkModeBackground
           enableAnimations={enableAnimations}
-          maxElements={adjustedMaxElements}
+          maxElements={maxElements}
           enableBlur={enableBlur}
           enableParallax={enableParallax}
         />
       ) : (
         <LightModeBackground
           enableAnimations={enableAnimations}
-          maxElements={adjustedMaxElements}
+          maxElements={maxElements}
           deviceType={deviceType}
         />
       )}
