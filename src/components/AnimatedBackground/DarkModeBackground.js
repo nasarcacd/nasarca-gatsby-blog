@@ -1,25 +1,8 @@
-import React, { useState, useEffect } from "react"
+import React from "react"
 import styled, { keyframes, css } from "styled-components"
 import PropTypes from "prop-types"
 
 // Animaciones (MUCHO MÁS LENTAS)
-const shootingStar = keyframes`
-  0% {
-    transform: translate(0, 0) rotate(45deg);
-    opacity: 0;
-  }
-  5% {
-    opacity: 1;
-  }
-  95% {
-    opacity: 1;
-  }
-  100% {
-    transform: translate(-400px, 400px) rotate(45deg);
-    opacity: 0;
-  }
-`
-
 const rotateGalaxy = keyframes`
   from {
     transform: rotate(0deg);
@@ -60,23 +43,6 @@ const BackgroundContainer = styled.div`
   z-index: -1;
   pointer-events: none;
   background: linear-gradient(180deg, #000000 0%, #0a0a14 50%, #1a1a2e 100%);
-`
-
-// Estrella fugaz
-const ShootingStar = styled.div`
-  position: absolute;
-  width: ${props => props.$length}px;
-  height: 3px;
-  background: linear-gradient(90deg, rgba(255, 255, 255, 1) 0%, rgba(255, 255, 255, 0.8) 50%, transparent 100%);
-  filter: blur(0.5px);
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.9), 0 0 20px rgba(255, 255, 255, 0.5);
-  animation: ${shootingStar} ${props => props.$duration}s ease-in forwards;
-  top: ${props => props.$top}%;
-  left: ${props => props.$left}%;
-  will-change: transform, opacity;
-  ${props => props.$enableAnimations && css`
-    animation-play-state: running;
-  `}
 `
 
 // Galaxia espiral (más realista)
@@ -190,42 +156,6 @@ const Star = styled.div`
 `
 
 const DarkModeBackground = ({ enableAnimations, maxElements, enableBlur }) => {
-  const [shootingStars, setShootingStars] = useState([])
-
-  useEffect(() => {
-    if (!enableAnimations) return
-
-    const createShootingStar = () => {
-      const id = Date.now() + Math.random()
-      const star = {
-        id,
-        top: Math.random() * 30, // Solo en el tercio superior
-        left: 60 + Math.random() * 40, // Desde la derecha
-        duration: 3 + Math.random() * 3, // 3-6 segundos (MÁS LENTO)
-        length: 150 + Math.random() * 150, // 150-300px (MÁS LARGO)
-      }
-
-      setShootingStars(prev => [...prev, star])
-
-      setTimeout(() => {
-        setShootingStars(prev => prev.filter(s => s.id !== id))
-      }, star.duration * 1000)
-    }
-
-    // Crear estrella fugaz cada 8-15 segundos (MUCHO MÁS ESPACIADO)
-    const interval = setInterval(() => {
-      createShootingStar()
-    }, 8000 + Math.random() * 7000)
-
-    // Primera estrella después de 3 segundos
-    const initialTimeout = setTimeout(createShootingStar, 3000)
-
-    return () => {
-      clearInterval(interval)
-      clearTimeout(initialTimeout)
-    }
-  }, [enableAnimations])
-
   // Configuración de galaxias (MÁS LENTAS)
   const galaxies = [
     { top: 12, left: 18, size: 450, duration: 240, opacity: 0.12, blur: 60 },
@@ -490,18 +420,6 @@ const DarkModeBackground = ({ enableAnimations, maxElements, enableBlur }) => {
           $hasRing={planet.hasRing}
           $ringColor={planet.ringColor}
           $hasAtmosphere={planet.hasAtmosphere}
-          $enableAnimations={enableAnimations}
-        />
-      ))}
-
-      {/* Estrellas fugaces */}
-      {enableAnimations && shootingStars.map(star => (
-        <ShootingStar
-          key={star.id}
-          $top={star.top}
-          $left={star.left}
-          $duration={star.duration}
-          $length={star.length}
           $enableAnimations={enableAnimations}
         />
       ))}
