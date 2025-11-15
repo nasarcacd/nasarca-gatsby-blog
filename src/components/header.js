@@ -36,10 +36,24 @@ const ImageWrapper = styled.div`
   overflow: hidden;
   border: 2px solid white;
   flex-shrink: 0;
+
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+  }
 `
 
 const Title = styled.h1`
   margin: 0;
+  font-size: 1.5rem;
+
+  @media (max-width: 768px) {
+    font-size: 1.1rem;
+  }
+
+  @media (max-width: 480px) {
+    font-size: 0.95rem;
+  }
 `
 
 const TitleLink = styled(Link)`
