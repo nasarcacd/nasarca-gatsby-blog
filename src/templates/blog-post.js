@@ -6,16 +6,51 @@ import Layout from "../components/layout"
 import { ThemeContext } from "../context/ThemeContext"
 
 const BackLink = styled(Link)`
-  color: ${props => (props.isDarkMode ? "#ffd700" : "#60635c")};
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 12px 24px;
+  margin-bottom: 2rem;
+  background: ${props => (props.isDarkMode
+    ? "linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.08) 100%)"
+    : "linear-gradient(135deg, #f0f0f0 0%, #e8e8e8 100%)")};
+  color: ${props => (props.isDarkMode ? "#ffd700" : "#24248a")};
+  border: 2px solid ${props => (props.isDarkMode ? "rgba(255, 215, 0, 0.3)" : "#d0d0d0")};
+  border-radius: 12px;
   text-decoration: none;
-  font-weight: 600;
-  display: inline-block;
-  margin-bottom: 1rem;
-  transition: all 0.3s ease;
+  font-weight: 700;
+  font-size: 0.95rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: ${props => (props.isDarkMode
+    ? "0 2px 8px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 215, 0, 0.1)"
+    : "0 2px 8px rgba(0, 0, 0, 0.1), inset 0 1px 0 rgba(255, 255, 255, 0.5)")};
+  cursor: pointer;
+
+  &::before {
+    content: "←";
+    font-size: 1.3em;
+    font-weight: bold;
+    transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
 
   &:hover {
-    color: ${props => (props.isDarkMode ? "#ffed4e" : "#24248a")};
-    transform: translateX(-5px);
+    background: ${props => (props.isDarkMode
+      ? "linear-gradient(135deg, rgba(255, 215, 0, 0.25) 0%, rgba(255, 215, 0, 0.15) 100%)"
+      : "linear-gradient(135deg, #24248a 0%, #4a4acd 100%)")};
+    color: ${props => (props.isDarkMode ? "#ffed4e" : "#ffffff")};
+    border-color: ${props => (props.isDarkMode ? "rgba(255, 237, 78, 0.5)" : "#24248a")};
+    transform: translateX(-4px);
+    box-shadow: ${props => (props.isDarkMode
+      ? "0 4px 16px rgba(255, 215, 0, 0.2), inset 0 1px 0 rgba(255, 215, 0, 0.2)"
+      : "0 4px 16px rgba(36, 36, 138, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2)")};
+  }
+
+  &:hover::before {
+    transform: translateX(-4px);
+  }
+
+  &:active {
+    transform: translateX(-2px) scale(0.98);
   }
 `
 
@@ -166,7 +201,7 @@ const BlogPost = ({ data }) => {
     <Layout>
       <div>
         <BackLink to="/" isDarkMode={isDarkMode}>
-          ← Back to Posts
+          Volver a Posts
         </BackLink>
 
         <PostHeader isDarkMode={isDarkMode}>
