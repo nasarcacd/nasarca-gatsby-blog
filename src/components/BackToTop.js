@@ -9,16 +9,20 @@ const FloatingButton = styled.button`
   background: ${props => (props.isDarkMode ? "#ffd700" : "#24248a")};
   color: ${props => (props.isDarkMode ? "#2c2c2c" : "#fff")};
   border: none;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  font-size: 24px;
+  border-radius: 25px;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 600;
   cursor: pointer;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
   transition: all 0.3s ease;
   opacity: ${props => (props.visible ? "1" : "0")};
   visibility: ${props => (props.visible ? "visible" : "hidden")};
   z-index: 1000;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  white-space: nowrap;
 
   &:hover {
     transform: translateY(-5px);
@@ -46,9 +50,17 @@ const FloatingButton = styled.button`
   @media (max-width: 480px) {
     bottom: 20px;
     right: 20px;
-    width: 60px;
-    height: 60px;
-    font-size: 28px;
+    padding: 10px 16px;
+    font-size: 13px;
+  }
+`
+
+const ArrowIcon = styled.span`
+  font-size: 18px;
+  line-height: 1;
+
+  @media (max-width: 480px) {
+    font-size: 16px;
   }
 `
 
@@ -118,7 +130,8 @@ const BackToTop = () => {
       aria-label="Scroll back to top"
       type="button"
     >
-      <span aria-hidden="true">↑</span>
+      <ArrowIcon aria-hidden="true">↑</ArrowIcon>
+      <span>Back to Top</span>
     </FloatingButton>
   )
 }
