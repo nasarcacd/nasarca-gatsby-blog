@@ -124,7 +124,7 @@ const LightModeBackground = ({ enableAnimations, maxElements, deviceType }) => {
         symbol: noteSymbols[Math.floor(Math.random() * noteSymbols.length)],
         left: 10 + Math.random() * 80, // Entre 10% y 90%
         size: 1.2 + Math.random() * 0.8, // 1.2-2rem
-        duration: 18 + Math.random() * 12, // 18-30 segundos (MUCHO MÁS LENTO)
+        duration: 30 + Math.random() * 20, // 30-50 segundos (MUY LENTO)
         delay: 0,
         color: colors[Math.floor(Math.random() * colors.length)],
         drift: (Math.random() - 0.5) * 80, // -40 a 40px (menos drift)
@@ -144,10 +144,10 @@ const LightModeBackground = ({ enableAnimations, maxElements, deviceType }) => {
       }, note.duration * 1000)
     }
 
-    // Crear nota cada 4-8 segundos (MUCHO MÁS ESPACIADO)
+    // Crear nota cada 6-12 segundos (MUY ESPACIADO)
     const interval = setInterval(() => {
       createMusicNote()
-    }, 4000 + Math.random() * 4000)
+    }, 6000 + Math.random() * 6000)
 
     // Crear algunas notas iniciales con delay
     for (let i = 0; i < Math.min(2, maxElements); i++) {
