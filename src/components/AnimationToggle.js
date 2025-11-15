@@ -38,11 +38,7 @@ const ToggleButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    bottom: 90px;
-    right: 15px;
-    width: 45px;
-    height: 45px;
-    font-size: 1.3rem;
+    display: none;
   }
 `
 
