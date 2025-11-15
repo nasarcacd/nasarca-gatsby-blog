@@ -23,9 +23,9 @@ const MainContainer = styled.div`
   max-width: 100%;
   padding: 0 1rem 1.45rem;
   min-height: 100vh;
-  background: transparent;
+  background: ${props => (props.isDarkMode ? "linear-gradient(180deg, #000000 0%, #0a0a14 50%, #1a1a2e 100%)" : "transparent")};
   color: ${props => (props.isDarkMode ? "#e0e0e0" : "#333")};
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, background 0.3s ease;
   position: relative;
   z-index: 1;
 
