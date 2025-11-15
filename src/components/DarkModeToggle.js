@@ -18,6 +18,12 @@ const ToggleButton = styled.button`
   width: 50px;
   height: 50px;
 
+  @media (max-width: 768px) {
+    width: 40px;
+    height: 40px;
+    font-size: 16px;
+  }
+
   &:hover {
     transform: scale(1.1);
   }
@@ -44,8 +50,16 @@ const MoonWithStars = styled.span`
   position: relative;
   font-size: 24px;
 
+  @media (max-width: 768px) {
+    font-size: 18px;
+  }
+
   .moon {
     font-size: 24px;
+
+    @media (max-width: 768px) {
+      font-size: 18px;
+    }
   }
 
   .stars {
@@ -55,6 +69,12 @@ const MoonWithStars = styled.span`
     font-size: 10px;
     display: flex;
     gap: 1px;
+
+    @media (max-width: 768px) {
+      font-size: 8px;
+      top: -1px;
+      right: -4px;
+    }
   }
 `
 
