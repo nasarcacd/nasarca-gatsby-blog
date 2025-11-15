@@ -8,24 +8,19 @@ export const ThemeContext = createContext({
 })
 
 export const ThemeProvider = ({ children }) => {
-  const [isDarkMode, setIsDarkMode] = useState(true)
+  // Initialize state with a function to check localStorage immediately
+  const [isDarkMode, setIsDarkMode] = useState(() => {
+    // SSR safe: Check if window is defined
+    if (typeof window === "undefined") return true
+
+    // Check for saved theme preference or use dark mode as default
+    const savedTheme = localStorage.getItem("theme")
+    return savedTheme ? savedTheme === "dark" : true
+  })
   const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
     setMounted(true)
-
-    // SSR safe: Check if window is defined
-    if (typeof window === "undefined") return
-
-    // Check for saved theme preference or use dark mode as default
-    const savedTheme = localStorage.getItem("theme")
-
-    if (savedTheme) {
-      setIsDarkMode(savedTheme === "dark")
-    } else {
-      // Default to dark mode
-      setIsDarkMode(true)
-    }
   }, [])
 
   useEffect(() => {
