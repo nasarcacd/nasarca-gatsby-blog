@@ -29,6 +29,7 @@ const BackLink = styled(Link)`
   align-items: center;
   gap: 8px;
   padding: 12px 24px;
+  margin-top: 1.5rem;
   margin-bottom: 2rem;
   background: ${props => (props.isDarkMode
     ? "linear-gradient(135deg, rgba(255, 215, 0, 0.15) 0%, rgba(255, 215, 0, 0.08) 100%)"
