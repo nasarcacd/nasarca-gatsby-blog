@@ -21,11 +21,11 @@ const BackLink = styled(Link)`
 
 const PostHeader = styled.div`
   margin-bottom: 2rem;
-  padding: ${props => (props.isDarkMode ? "2rem" : "0 0 1rem 0")};
+  padding: ${props => (props.isDarkMode ? "1.5rem 0 1rem 0" : "0 0 1rem 0")};
   border-bottom: 2px solid ${props => (props.isDarkMode ? "#ffd700" : "#e0e0e0")};
-  background: ${props => (props.isDarkMode ? "rgba(26, 26, 26, 0.92)" : "transparent")};
+  background: ${props => (props.isDarkMode ? "rgba(26, 26, 26, 0.85)" : "transparent")};
   border-radius: ${props => (props.isDarkMode ? "8px 8px 0 0" : "0")};
-  box-shadow: ${props => (props.isDarkMode ? "0 4px 20px rgba(0, 0, 0, 0.5)" : "none")};
+  box-shadow: ${props => (props.isDarkMode ? "0 2px 10px rgba(0, 0, 0, 0.3)" : "none")};
 `
 
 const PostTitle = styled.h1`
@@ -58,10 +58,10 @@ const Tag = styled.span`
 const PostContent = styled.div`
   color: ${props => (props.isDarkMode ? "#f0f0f0" : "#333")};
   line-height: 1.8;
-  background: ${props => (props.isDarkMode ? "rgba(26, 26, 26, 0.92)" : "transparent")};
-  padding: ${props => (props.isDarkMode ? "2rem" : "0")};
+  background: ${props => (props.isDarkMode ? "rgba(26, 26, 26, 0.85)" : "transparent")};
+  padding: ${props => (props.isDarkMode ? "1.5rem 0" : "0")};
   border-radius: ${props => (props.isDarkMode ? "0 0 8px 8px" : "0")};
-  box-shadow: ${props => (props.isDarkMode ? "0 4px 20px rgba(0, 0, 0, 0.5)" : "none")};
+  box-shadow: ${props => (props.isDarkMode ? "0 2px 10px rgba(0, 0, 0, 0.3)" : "none")};
   margin-top: ${props => (props.isDarkMode ? "-2rem" : "0")};
 
   h1,

@@ -33,17 +33,17 @@ const usePerformance = () => {
 
       // Calcular nivel de performance
       if (isMobile) {
-        // Móviles: más restrictivo
-        if (hardwareConcurrency <= 4 || deviceMemory <= 2) {
+        // Móviles: moderado (permitir animaciones en la mayoría de dispositivos)
+        if (hardwareConcurrency <= 2 && deviceMemory <= 1) {
           setPerformanceLevel("low")
-        } else if (hardwareConcurrency <= 6 || deviceMemory <= 4) {
+        } else if (hardwareConcurrency <= 4 && deviceMemory <= 3) {
           setPerformanceLevel("medium")
         } else {
           setPerformanceLevel("high")
         }
       } else if (isTablet) {
         // Tablets: moderado
-        if (hardwareConcurrency <= 4 || deviceMemory <= 3) {
+        if (hardwareConcurrency <= 2 || deviceMemory <= 2) {
           setPerformanceLevel("medium")
         } else {
           setPerformanceLevel("high")
