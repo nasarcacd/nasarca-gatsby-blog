@@ -20,9 +20,9 @@ import "./layout.css"
 
 const MainContainer = styled.div`
   margin: 0 auto;
-  width: 80%;
-  max-width: 1400px;
-  padding: 0 1.0875rem 1.45rem;
+  width: 100%;
+  max-width: 100%;
+  padding: 0 1rem 1.45rem;
   min-height: 100vh;
   background: transparent;
   color: ${props => (props.isDarkMode ? "#e0e0e0" : "#333")};
@@ -31,7 +31,7 @@ const MainContainer = styled.div`
   z-index: 1;
 
   @media (max-width: 768px) {
-    width: 95%;
+    padding: 0 0.75rem 1.45rem;
   }
 `
 
