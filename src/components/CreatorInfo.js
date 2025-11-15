@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { ThemeContext } from "../context/ThemeContext"
 
 const FooterContainer = styled.footer`
-  background: ${props => (props.isDarkMode ? "#2c2c2c" : "#f5f5f5")};
+  background: ${props => (props.isDarkMode ? "transparent" : "#f5f5f5")};
   color: ${props => (props.isDarkMode ? "#e0e0e0" : "#333")};
   padding: 20px;
   margin-top: 3rem;

@@ -52,8 +52,8 @@ const Layout = ({ children }) => {
       <Header siteTitle={data.site.siteMetadata.title} />
       <MainContainer isDarkMode={isDarkMode}>
         <main>{children}</main>
+        <CreatorInfo />
       </MainContainer>
-      <CreatorInfo />
       <BackToTop />
     </>
   )
