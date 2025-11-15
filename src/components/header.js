@@ -8,7 +8,7 @@ import { ThemeContext } from "../context/ThemeContext"
 
 const HeaderContainer = styled.header`
   background: ${props => (props.isDarkMode ? "linear-gradient(180deg, #000000 0%, #0a0a14 100%)" : "#60635c")};
-  margin-bottom: 1.45rem;
+  margin-bottom: ${props => (props.isDarkMode ? "0" : "1.45rem")};
   transition: background 0.3s ease;
   position: relative;
   z-index: 10;
