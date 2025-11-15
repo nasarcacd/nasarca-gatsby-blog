@@ -5,7 +5,7 @@ import useReducedMotion from "../hooks/useReducedMotion"
 
 const ToggleButton = styled.button`
   position: fixed;
-  bottom: 80px;
+  bottom: 100px;
   right: 20px;
   width: 50px;
   height: 50px;
@@ -38,7 +38,7 @@ const ToggleButton = styled.button`
   }
 
   @media (max-width: 768px) {
-    bottom: 70px;
+    bottom: 90px;
     right: 15px;
     width: 45px;
     height: 45px;
@@ -52,9 +52,9 @@ const Tooltip = styled.div`
   right: 0;
   background: ${props => (props.$isDarkMode ? "rgba(26, 26, 26, 0.95)" : "rgba(255, 255, 255, 0.95)")};
   color: ${props => (props.$isDarkMode ? "#e0e0e0" : "#333")};
-  padding: 8px 12px;
-  border-radius: 8px;
-  font-size: 0.85rem;
+  padding: 6px 10px;
+  border-radius: 6px;
+  font-size: 0.8rem;
   white-space: nowrap;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
   pointer-events: none;
@@ -64,8 +64,8 @@ const Tooltip = styled.div`
   border: 1px solid ${props => (props.$isDarkMode ? "#ffd700" : "#6D4C41")};
 
   @media (max-width: 768px) {
-    font-size: 0.75rem;
-    padding: 6px 10px;
+    font-size: 0.7rem;
+    padding: 5px 8px;
   }
 `
 
@@ -78,17 +78,17 @@ const AnimationToggle = () => {
   useEffect(() => {
     if (typeof window === "undefined") return
 
-    // Cargar estado inicial
+    // Load initial state
     const saved = localStorage.getItem("animatedBackgroundEnabled")
     if (saved !== null) {
       setIsEnabled(saved === "true")
     } else {
-      // Por defecto activado si no hay preferencia de reducir movimiento
+      // Default to enabled if no reduce motion preference
       setIsEnabled(!prefersReducedMotion)
     }
   }, [prefersReducedMotion])
 
-  // Escuchar cambios desde el componente AnimatedBackground
+  // Listen for changes from AnimatedBackground component
   useEffect(() => {
     if (typeof window === "undefined") return
 
@@ -104,13 +104,13 @@ const AnimationToggle = () => {
   }, [])
 
   const handleToggle = () => {
-    if (prefersReducedMotion) return // No permitir toggle si hay preferencia de reducir movimiento
+    if (prefersReducedMotion) return // Don't allow toggle if reduce motion preference
 
     const newValue = !isEnabled
     setIsEnabled(newValue)
     localStorage.setItem("animatedBackgroundEnabled", newValue.toString())
 
-    // Disparar evento para que AnimatedBackground se actualice
+    // Dispatch event for AnimatedBackground to update
     window.dispatchEvent(
       new CustomEvent("toggleAnimatedBackground", { detail: newValue })
     )
@@ -118,9 +118,9 @@ const AnimationToggle = () => {
 
   const getTooltipText = () => {
     if (prefersReducedMotion) {
-      return "Animaciones desactivadas (preferencia del sistema)"
+      return "Animations disabled (system preference)"
     }
-    return isEnabled ? "Desactivar animaciones" : "Activar animaciones"
+    return isEnabled ? "Disable animations" : "Enable animations"
   }
 
   const getIcon = () => {

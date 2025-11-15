@@ -32,6 +32,26 @@ const AnimatedBackground = () => {
   // Estado para toggle manual de animaciones
   const [manualToggle, setManualToggle] = useState(null)
   const [isPageVisible, setIsPageVisible] = useState(true)
+  const [isHomepage, setIsHomepage] = useState(true)
+
+  // Detectar si estamos en la homepage
+  useEffect(() => {
+    if (typeof window === "undefined") return
+
+    const checkHomepage = () => {
+      const pathname = window.location.pathname
+      setIsHomepage(pathname === "/" || pathname === "")
+    }
+
+    checkHomepage()
+
+    // Listener para cambios de ruta (para SPAs)
+    window.addEventListener("popstate", checkHomepage)
+
+    return () => {
+      window.removeEventListener("popstate", checkHomepage)
+    }
+  }, [])
 
   // Cargar preferencia de animaciones desde localStorage
   useEffect(() => {
@@ -87,6 +107,9 @@ const AnimatedBackground = () => {
 
   // Determinar si las animaciones deben estar activas
   const shouldAnimate = () => {
+    // Prioridad 0: Solo mostrar en homepage
+    if (!isHomepage) return false
+
     // Prioridad 1: Si el usuario prefiere reducir movimiento, desactivar
     if (prefersReducedMotion) return false
 
@@ -104,6 +127,11 @@ const AnimatedBackground = () => {
 
   // Ajustar maxElements si las animaciones están desactivadas
   const adjustedMaxElements = enableAnimations ? maxElements : 0
+
+  // No renderizar nada si no estamos en la homepage
+  if (!isHomepage) {
+    return null
+  }
 
   return (
     <Container $visible={isPageVisible}>

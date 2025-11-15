@@ -3,25 +3,25 @@ import styled, { keyframes, css } from "styled-components"
 import PropTypes from "prop-types"
 import {
   AcousticGuitar,
+  Cello,
   ElectricGuitar,
-  Violin,
   Piano,
 } from "./InstrumentSVGs"
 
-// Animaciones
+// Animaciones (MUCHO MÁS LENTAS)
 const floatUp = keyframes`
   0% {
     transform: translateY(0) translateX(0) rotate(0deg);
     opacity: 0;
   }
-  10% {
-    opacity: 0.7;
+  5% {
+    opacity: 0.6;
   }
-  90% {
-    opacity: 0.7;
+  95% {
+    opacity: 0.6;
   }
   100% {
-    transform: translateY(-100vh) translateX(var(--drift)) rotate(var(--rotation));
+    transform: translateY(-110vh) translateX(var(--drift)) rotate(var(--rotation));
     opacity: 0;
   }
 `
@@ -40,7 +40,7 @@ const pulseScale = keyframes`
     transform: scale(1) rotate(var(--base-rotation));
   }
   50% {
-    transform: scale(1.02) rotate(var(--base-rotation));
+    transform: scale(1.01) rotate(var(--base-rotation));
   }
 `
 
@@ -54,7 +54,7 @@ const BackgroundContainer = styled.div`
   overflow: hidden;
   z-index: -1;
   pointer-events: none;
-  background: linear-gradient(180deg, #fafafa 0%, #ffffff 100%);
+  background: linear-gradient(180deg, #FEFEFE 0%, #F5F5F5 50%, #FFFFFF 100%);
 `
 
 // Nota musical flotante
@@ -70,7 +70,7 @@ const MusicNote = styled.div`
   will-change: transform, opacity;
   --drift: ${props => props.$drift}px;
   --rotation: ${props => props.$rotation}deg;
-  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.15);
 
   ${props => props.$enableAnimations && css`
     animation-play-state: running;
@@ -103,15 +103,15 @@ const LightModeBackground = ({ enableAnimations, maxElements, deviceType }) => {
   // Símbolos de notas musicales
   const noteSymbols = ["♪", "♫", "♬", "🎵", "🎶"]
 
-  // Paleta de colores tierra/dorado
+  // Paleta de colores tierra/dorado/madera
   const colors = [
     "#5D4037", // Marrón oscuro
-    "#6D4C41",
+    "#6D4C41", // Marrón medio
     "#8B4513", // Madera
-    "#A0522D",
+    "#A0522D", // Sienna
     "#D4AF37", // Dorado
-    "#DAA520",
-    "#F57C00", // Ámbar
+    "#C19A6B", // Camello
+    "#CD853F", // Perú
   ]
 
   useEffect(() => {
@@ -122,18 +122,18 @@ const LightModeBackground = ({ enableAnimations, maxElements, deviceType }) => {
       const note = {
         id,
         symbol: noteSymbols[Math.floor(Math.random() * noteSymbols.length)],
-        left: Math.random() * 100,
-        size: 1 + Math.random() * 1, // 1-2rem
-        duration: 8 + Math.random() * 7, // 8-15s
+        left: 10 + Math.random() * 80, // Entre 10% y 90%
+        size: 1.2 + Math.random() * 0.8, // 1.2-2rem
+        duration: 18 + Math.random() * 12, // 18-30 segundos (MUCHO MÁS LENTO)
         delay: 0,
         color: colors[Math.floor(Math.random() * colors.length)],
-        drift: (Math.random() - 0.5) * 100, // -50 a 50px
-        rotation: (Math.random() - 0.5) * 30, // -15 a 15 grados
+        drift: (Math.random() - 0.5) * 80, // -40 a 40px (menos drift)
+        rotation: (Math.random() - 0.5) * 25, // -12.5 a 12.5 grados
       }
 
       setMusicNotes(prev => {
         // Limitar cantidad de notas visibles
-        const maxNotes = Math.min(8, maxElements)
+        const maxNotes = Math.min(6, maxElements)
         const filtered = prev.slice(-maxNotes + 1)
         return [...filtered, note]
       })
@@ -144,73 +144,73 @@ const LightModeBackground = ({ enableAnimations, maxElements, deviceType }) => {
       }, note.duration * 1000)
     }
 
-    // Crear nota cada 1.5-3 segundos
+    // Crear nota cada 4-8 segundos (MUCHO MÁS ESPACIADO)
     const interval = setInterval(() => {
       createMusicNote()
-    }, 1500 + Math.random() * 1500)
+    }, 4000 + Math.random() * 4000)
 
-    // Crear algunas notas iniciales
-    for (let i = 0; i < Math.min(3, maxElements); i++) {
-      setTimeout(() => createMusicNote(), i * 500)
+    // Crear algunas notas iniciales con delay
+    for (let i = 0; i < Math.min(2, maxElements); i++) {
+      setTimeout(() => createMusicNote(), i * 2000)
     }
 
     return () => clearInterval(interval)
   }, [enableAnimations, maxElements])
 
-  // Configuración de instrumentos según tipo de dispositivo
+  // Configuración de instrumentos (MÁS LENTOS)
   const getInstruments = () => {
     const baseInstruments = [
       {
-        Component: Violin,
-        top: 10,
-        left: 5,
-        size: deviceType === "mobile" ? 150 : 250,
-        color: "#8B4513",
-        opacity: 0.08,
-        swayDuration: 5,
-        pulseDuration: 4,
-        rotateStart: -3,
-        rotateEnd: 3,
-        baseRotation: 15,
+        Component: Cello,
+        top: 8,
+        left: 3,
+        size: deviceType === "mobile" ? 180 : 280,
+        color: "#6D4C41",
+        opacity: 0.09,
+        swayDuration: 12, // Más lento
+        pulseDuration: 10, // Más lento
+        rotateStart: -2,
+        rotateEnd: 2,
+        baseRotation: 12,
       },
       {
         Component: AcousticGuitar,
-        top: 70,
-        left: 80,
-        size: deviceType === "mobile" ? 180 : 300,
-        color: "#6D4C41",
-        opacity: 0.1,
-        swayDuration: 6,
-        pulseDuration: 5,
-        rotateStart: -5,
-        rotateEnd: 5,
-        baseRotation: -10,
+        top: 68,
+        left: 78,
+        size: deviceType === "mobile" ? 200 : 320,
+        color: "#8B4513",
+        opacity: 0.10,
+        swayDuration: 14, // Más lento
+        pulseDuration: 11, // Más lento
+        rotateStart: -2.5,
+        rotateEnd: 2.5,
+        baseRotation: -8,
       },
       {
         Component: ElectricGuitar,
-        top: 40,
-        left: 50,
-        size: deviceType === "mobile" ? 200 : 350,
+        top: 38,
+        left: 48,
+        size: deviceType === "mobile" ? 220 : 360,
         color: "#5D4037",
-        opacity: 0.06,
-        swayDuration: 7,
-        pulseDuration: 6,
-        rotateStart: -4,
-        rotateEnd: 4,
+        opacity: 0.05,
+        swayDuration: 16, // Más lento
+        pulseDuration: 13, // Más lento
+        rotateStart: -2,
+        rotateEnd: 2,
         baseRotation: 0,
       },
       {
         Component: Piano,
-        top: 80,
-        left: 20,
-        size: deviceType === "mobile" ? 120 : 200,
-        color: "#2C2C2C",
-        opacity: 0.05,
-        swayDuration: 8,
-        pulseDuration: 7,
-        rotateStart: -2,
-        rotateEnd: 2,
-        baseRotation: 5,
+        top: 82,
+        left: 18,
+        size: deviceType === "mobile" ? 140 : 220,
+        color: "#1a1a1a",
+        opacity: 0.04,
+        swayDuration: 18, // Más lento
+        pulseDuration: 15, // Más lento
+        rotateStart: -1.5,
+        rotateEnd: 1.5,
+        baseRotation: 3,
       },
     ]
 
@@ -220,7 +220,7 @@ const LightModeBackground = ({ enableAnimations, maxElements, deviceType }) => {
     } else if (deviceType === "tablet") {
       return baseInstruments.slice(0, 2)
     } else {
-      return baseInstruments.slice(0, Math.min(4, maxElements))
+      return baseInstruments.slice(0, Math.min(3, maxElements))
     }
   }
 
