@@ -46,9 +46,9 @@ const FloatingButton = styled.button`
   @media (max-width: 480px) {
     bottom: 20px;
     right: 20px;
-    width: 45px;
-    height: 45px;
-    font-size: 20px;
+    width: 60px;
+    height: 60px;
+    font-size: 28px;
   }
 `
 
