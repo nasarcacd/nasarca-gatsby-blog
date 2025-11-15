@@ -9,6 +9,8 @@ const FooterContainer = styled.footer`
   margin-top: 3rem;
   text-align: center;
   border-top: 1px solid ${props => (props.isDarkMode ? "#444" : "#ddd")};
+  position: relative;
+  z-index: 10;
 `
 
 const SocialLinks = styled.div`

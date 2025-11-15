@@ -13,6 +13,8 @@ import styled from "styled-components"
 import Header from "./header"
 import BackToTop from "./BackToTop"
 import CreatorInfo from "./CreatorInfo"
+import AnimatedBackground from "./AnimatedBackground"
+import AnimationToggle from "./AnimationToggle"
 import { ThemeContext } from "../context/ThemeContext"
 import "./layout.css"
 
@@ -22,9 +24,11 @@ const MainContainer = styled.div`
   max-width: 1400px;
   padding: 0 1.0875rem 1.45rem;
   min-height: 100vh;
-  background: ${props => (props.isDarkMode ? "#1a1a1a" : "#ffffff")};
+  background: transparent;
   color: ${props => (props.isDarkMode ? "#e0e0e0" : "#333")};
-  transition: background 0.3s ease, color 0.3s ease;
+  transition: color 0.3s ease;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 768px) {
     width: 95%;
@@ -45,12 +49,14 @@ const Layout = ({ children }) => {
 
   return (
     <>
+      <AnimatedBackground />
       <Header siteTitle={data.site.siteMetadata.title} />
       <MainContainer isDarkMode={isDarkMode}>
         <main>{children}</main>
       </MainContainer>
       <CreatorInfo />
       <BackToTop />
+      <AnimationToggle />
     </>
   )
 }
